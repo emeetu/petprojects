@@ -1,0 +1,10 @@
+# Render: Backend (FastAPI). После деплоя подставьте URL сервиса в API_BASE_URL для Streamlit Cloud.
+services:
+  - type: web
+    name: dashboard-api
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn backend.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.0"
